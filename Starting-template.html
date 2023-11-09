@@ -165,7 +165,7 @@
 
       <div class="album py-5 bg-light">
         <div class="container">
-          <div class="row"></div>
+          <div class="my-row row"></div>
         </div>
       </div>
     </main>
@@ -192,6 +192,7 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      const myrow = document.querySelector(".my-row");
       const btnfirst = document.querySelector(".my-first-btn");
       const URL = "https://api.pexels.com/v1/search?query=nature";
       const imgnature = () => {
@@ -206,13 +207,18 @@
           .then((resp) => resp.json())
           .then((imgobj) => {
             console.log(imgobj);
-            imgobj.forEach((pexel) => {
+            const pexel = imgobj.photos;
+            pexel.forEach((pexels) => {
               const col = document.createElement("div");
-              col.className("col-md-4");
+              col.className = "col-md-4";
               const card = document.createElement("div");
-              card.className("card");
+              card.className = "card";
               const img = document.createElement("img");
-              img.src = img.src.original;
+              img.src = pexels.src.original;
+
+              myrow.appendChild(col);
+              col.appendChild(card);
+              card.appendChild(img);
             });
           });
       };

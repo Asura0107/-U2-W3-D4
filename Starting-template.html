@@ -191,37 +191,6 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
-    <script>
-      const myrow = document.querySelector(".my-row");
-      const btnfirst = document.querySelector(".my-first-btn");
-      const URL = "https://api.pexels.com/v1/search?query=nature";
-      const imgnature = () => {
-        fetch(URL, {
-          method: "GET",
-          headers: {
-            Authorization:
-              "DjZ1bC98ix9tgR07ZPSwCJZKWbN57RokYXZHoEX9gXM31PvR4Tz5WJLd",
-            "Content-Type": "application/json"
-          }
-        })
-          .then((resp) => resp.json())
-          .then((imgobj) => {
-            console.log(imgobj);
-            const pexel = imgobj.photos;
-            pexel.forEach((pexels) => {
-              const col = document.createElement("div");
-              col.className = "col-md-4";
-              const card = document.createElement("div");
-              card.className = "card";
-              const img = document.createElement("img");
-              img.src = pexels.src.original;
-
-              myrow.appendChild(col);
-              col.appendChild(card);
-              card.appendChild(img);
-            });
-          });
-      };
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>
